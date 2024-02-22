@@ -33,7 +33,7 @@ public class ResultView extends View {
         super(context);
     }
 
-    public ResultView(Context context, AttributeSet attrs){
+    public ResultView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mPaintRectangle = new Paint();
         mPaintRectangle.setColor(Color.YELLOW);
@@ -51,7 +51,7 @@ public class ResultView extends View {
             canvas.drawRect(result.rect, mPaintRectangle);
 
             Path mPath = new Path();
-            RectF mRectF = new RectF(result.rect.left, result.rect.top, result.rect.left + TEXT_WIDTH,  result.rect.top + TEXT_HEIGHT);
+            RectF mRectF = new RectF(result.rect.left, result.rect.top, result.rect.left + TEXT_WIDTH, result.rect.top + TEXT_HEIGHT);
             mPath.addRect(mRectF, Path.Direction.CW);
             mPaintText.setColor(Color.MAGENTA);
             canvas.drawPath(mPath, mPaintText);

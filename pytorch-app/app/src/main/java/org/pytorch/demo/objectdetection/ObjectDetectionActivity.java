@@ -25,7 +25,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetectionActivity.AnalysisResult> {
     private Module mModule = null;
@@ -104,10 +103,10 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
         final Tensor outputTensor = outputTuple.toTensor();
         final float[] outputs = outputTensor.getDataAsFloatArray();
 
-        float imgScaleX = (float)bitmap.getWidth() / PrePostProcessor.mInputWidth;
-        float imgScaleY = (float)bitmap.getHeight() / PrePostProcessor.mInputHeight;
-        float ivScaleX = (float)mResultView.getWidth() / bitmap.getWidth();
-        float ivScaleY = (float)mResultView.getHeight() / bitmap.getHeight();
+        float imgScaleX = (float) bitmap.getWidth() / PrePostProcessor.mInputWidth;
+        float imgScaleY = (float) bitmap.getHeight() / PrePostProcessor.mInputHeight;
+        float ivScaleX = (float) mResultView.getWidth() / bitmap.getWidth();
+        float ivScaleY = (float) mResultView.getHeight() / bitmap.getHeight();
 
         final ArrayList<Result> results = PrePostProcessor.outputsToNMSPredictions(outputs, imgScaleX, imgScaleY, ivScaleX, ivScaleY, 0, 0);
         return new AnalysisResult(results);
